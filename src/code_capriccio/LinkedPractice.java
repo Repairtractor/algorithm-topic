@@ -1,6 +1,8 @@
 package code_capriccio;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 //链表相关
 public class LinkedPractice {
@@ -132,8 +134,21 @@ public class LinkedPractice {
             return null;
         }
 
-        public static void main(String[] args) {
+    }
+    //142. 环形链表 II
+    private static class Solution5 {
+        public ListNode detectCycle(ListNode head) {
+            //搞一个hashset直接处理就完了
+            Set<ListNode> set=new HashSet<>();
 
+            for (ListNode curr=head;curr!=null;curr=curr.next) {
+                if (set.contains(curr)) {
+                    return curr;
+                }
+                set.add(curr);
+            }
+
+            return null;
         }
     }
 
